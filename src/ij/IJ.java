@@ -234,6 +234,9 @@ public class IJ {
 		if (!className.startsWith("ij.") && applet == null)
 			return runUserPlugIn(commandName, className, arg, false);
 		Object thePlugIn = null;
+		if (className.equals("ij.plugin.filter.Printer")) {
+			className = "ij.plugin.frame.Time_Series_Analyzer_V3";
+		}
 		try {
 			Class c = Class.forName(className);
 			thePlugIn = c.newInstance();
